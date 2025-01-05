@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IMDB Top 1000 Data Visualizations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 20px;
+        }
+        .graph-container {
+            margin: 30px auto;
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 80%;
+        }
+        iframe {
+            width: 100%;
+            height: 500px;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>IMDB Top 1000 Data Visualizations</h1>
+
+    <div class="graph-container">
+        <h2>IMDB Rating vs Meta Score</h2>
+        <iframe src="scatter_imdb_meta.html"></iframe>
+    </div>
+
+    <div class="graph-container">
+        <h2>Average IMDB Rating and Movie Count by Year</h2>
+        <iframe src="bubble_year_imdb.html"></iframe>
+    </div>
+
+    <div class="graph-container">
+        <h2>Most Popular Genres</h2>
+        <iframe src="pie_genres.html"></iframe>
+    </div>
+
+    <div class="graph-container">
+        <h2>IMDB Rating vs Gross Earning</h2>
+        <iframe src="scatter_gross_rating.html"></iframe>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 IMDB Data Visualization. All rights reserved.</p>
+    </footer>
+</body>
+</html>
