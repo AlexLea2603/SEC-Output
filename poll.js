@@ -25,17 +25,17 @@ function saveFilmRating() {
   // Get values from input fields
   const filmField = document.getElementById("Film");
   const ratingField = document.getElementById("Rating");
-  const moodField = document.getElementById("Mood");
+  //const moodField = document.getElementById("Mood");
   const genreField = document.getElementById("Genre");
   const commentsField = document.getElementById("Comments");
-  const watchAgainField = document.getElementById("WatchAgain");
+  //const watchAgainField = document.getElementById("WatchAgain");
 
   const filmName = filmField.value;
   const filmRating = ratingField.value;
-  const filmMood = moodField.value;
+  //const filmMood = moodField.value;
   const filmGenre = genreField.value;
   const extraComments = commentsField.value;
-  const wouldWatchAgain = watchAgainField.value === "Yes";  // Convert to Boolean (true/false)
+  //const wouldWatchAgain = watchAgainField.value === "Yes";  // Convert to Boolean (true/false)
 
   // Simple validation
   if (!filmName || !filmRating || !filmGenre) {
@@ -46,20 +46,20 @@ function saveFilmRating() {
   // Reset the form fields after submission
   filmField.value = "";
   ratingField.value = "";
-  moodField.value = "";
+  //moodField.value = "";
   genreField.value = "";
   commentsField.value = "";
-  watchAgainField.value = "Yes";  // Reset the "Would you watch it again?" field to "Yes"
+  //watchAgainField.value = "Yes";  // Reset the "Would you watch it again?" field to "Yes"
 
   // Save the data to Firebase
   const data = myDBCxn.push();
   data.set({
     Film: filmName,
     Rating: filmRating,
-    Mood: filmMood,
+    //Mood: filmMood,
     Genre: filmGenre,
     Comments: extraComments,
-    WatchAgain: wouldWatchAgain  // Store the Boolean value
+    //WatchAgain: wouldWatchAgain  // Store the Boolean value
   });
 
   alert("Film, Rating, Genre, Would you watch it again, and Comments saved successfully!");
@@ -95,9 +95,9 @@ function displayDataInTable(data) {
   commentsCell.innerText = datapoint.Comments;
   newRow.appendChild(commentsCell);
 
-  const watchAgainCell = document.createElement("td");
-  watchAgainCell.innerText = datapoint.WatchAgain ? "Yes" : "No";  // Display "Yes" or "No"
-  newRow.appendChild(watchAgainCell);
+  //const watchAgainCell = document.createElement("td");
+  //watchAgainCell.innerText = datapoint.WatchAgain ? "Yes" : "No";  // Display "Yes" or "No"
+  //newRow.appendChild(watchAgainCell);
 
   // Append the new row to the table body
   document.getElementById("rows").appendChild(newRow);
