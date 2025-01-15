@@ -1,6 +1,5 @@
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, push, set, onChildAdded } from "firebase/database";
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
   apiKey: "AIzaSyA3uzOEiSmHmSZ96xd2pDMDttMxuHezGBI",
   authDomain: "contacts-database-b26e4.firebaseapp.com",
@@ -9,21 +8,21 @@ const firebaseConfig = {
   storageBucket: "contacts-database-b26e4.appspot.com",
   messagingSenderId: "717772121564",
   appId: "1:717772121564:web:e4400e0dadf40a5b8f9b19",
-  measurementId: "G-NE88YCNMGR"
+  measurementId: "G-NE88YCNMGR",
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const database = getDatabase(app);
+firebase.initializeApp(firebaseConfig);
 
 // Reference to the Films section in the database
-const filmsRef = ref(database, "Films");
+const myDBCxn = firebase.database().ref("/Films");
 
 // When the submit button is clicked, save the data
 const btn = document.getElementById("submit-data");
 btn.addEventListener("click", saveFilmRating);
 
 function saveFilmRating() {
+  // Get values from input fields
   const filmField = document.getElementById("Film");
   const ratingField = document.getElementById("Rating");
   const moodField = document.getElementById("Mood");
@@ -36,45 +35,67 @@ function saveFilmRating() {
   const filmGenre = genreField.value;
   const extraComments = commentsField.value;
 
+  // Simple validation
   if (!filmName || !filmRating || !filmGenre) {
     alert("Please fill out all fields.");
     return;
   }
 
+  // Reset the form fields after submission
   filmField.value = "";
   ratingField.value = "";
   moodField.value = "";
   genreField.value = "";
   commentsField.value = "";
 
-  const newFilmRef = push(filmsRef);
-  set(newFilmRef, {
+  // Save the data to Firebase
+  const data = myDBCxn.push();
+  data.set({
     Film: filmName,
     Rating: filmRating,
     Mood: filmMood,
     Genre: filmGenre,
-    Comments: extraComments,
+    Comments: extraComments
   });
 
   alert("Film, Rating, Type of Film, Genre, and Comments saved successfully!");
 }
 
-// Display data from Firebase as a table
-onChildAdded(filmsRef, (data) => {
+// Display data from Firebase as a table (rows and columns)
+myDBCxn.on("child_added", displayDataInTable);
+
+function displayDataInTable(data) {
   const datapoint = data.val();
 
+  // Create a new row for the table
   const newRow = document.createElement("tr");
-  newRow.innerHTML = `
-    <td>${datapoint.Film}</td>
-    <td>${datapoint.Rating}</td>
-    <td>${datapoint.Genre}</td>
-    <td>${datapoint.Mood}</td>
-    <td>${datapoint.Comments}</td>
-  `;
-  document.getElementById("rows").appendChild(newRow);
-});
 
-// Filter the table
+  // Create new cells for each field
+  const filmCell = document.createElement("td");
+  filmCell.innerText = datapoint.Film;
+  newRow.appendChild(filmCell);
+
+  const ratingCell = document.createElement("td");
+  ratingCell.innerText = datapoint.Rating;
+  newRow.appendChild(ratingCell);
+
+  const genreCell = document.createElement("td");
+  genreCell.innerText = datapoint.Genre;
+  newRow.appendChild(genreCell);
+
+  const moodCell = document.createElement("td");
+  moodCell.innerText = datapoint.Mood;
+  newRow.appendChild(moodCell);
+
+  const commentsCell = document.createElement("td");
+  commentsCell.innerText = datapoint.Comments;
+  newRow.appendChild(commentsCell);
+
+  // Append the new row to the table body
+  document.getElementById("rows").appendChild(newRow);
+}
+
+// Filter the table based on search input
 function filterTable() {
   const searchInput = document.getElementById("searchInput").value.toLowerCase();
   const tableRows = document.querySelectorAll("#rows tr");
@@ -86,9 +107,9 @@ function filterTable() {
     const genre = row.cells[3].innerText.toLowerCase();
 
     if (film.includes(searchInput) || rating.includes(searchInput) || mood.includes(searchInput) || genre.includes(searchInput)) {
-      row.style.display = "";
+      row.style.display = ""; // Show row if it matches search
     } else {
-      row.style.display = "none";
+      row.style.display = "none"; // Hide row if it doesn't match
     }
   });
 }

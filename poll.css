@@ -1,192 +1,186 @@
 /* Basic reset for padding and margin */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0; /* Removing default margin */
+  padding: 0; /* Removing default padding */
+  box-sizing: border-box; /* Ensuring consistent box-sizing */
+}
+
+/* Styling the body */
+body {
+  font-family: 'Arial', sans-serif; /* Setting font family */
+  background-color: #f4f4f4; /* Light gray background color */
+  color: #333; /* Dark gray text color */
+  padding: 20px; /* Adding padding around the body */
+}
+
+header {
+  text-align: center; /* Centering the header content */
+  margin: 10px; /* Adding margin around the header */
+}
+
+/* Container for the form */
+.form-container {
+  background-color: #ffffff; /* White background for the form */
+  border-radius: 8px; /* Rounded corners */
+  padding: 20px; /* Adding padding inside the container */
+  max-width: 500px; /* Limiting the width of the form */
+  margin: 20px auto; /* Centering the form */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adding a subtle shadow */
+}
+
+.form-container h2 {
+  text-align: center; /* Centering the subheading */
+  margin-bottom: 20px; /* Adding space below the subheading */
+  font-size: 1.5rem; /* Adjusting font size */
+  color: #444; /* Dark gray text */
+}
+
+.form-container label {
+  display: block; /* Making labels appear on their own line */
+  margin: 10px 0 5px; /* Adding space above and below labels */
+  font-size: 0.9rem; /* Adjusting font size */
+  font-weight: bold; /* Making labels bold */
+  color: #555; /* Medium gray color */
+}
+
+.form-container input[type="text"],
+.form-container textarea {
+  width: 100%; /* Full-width inputs */
+  padding: 10px; /* Padding inside inputs */
+  margin-bottom: 15px; /* Space below inputs */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  font-size: 0.9rem; /* Adjusting font size */
+  color: #333; /* Dark gray text */
+}
+
+.form-container textarea {
+  resize: none; /* Preventing resizing for the textarea */
+}
+
+.form-container button {
+  width: 100%; /* Full-width button */
+  padding: 10px; /* Adding padding inside the button */
+  background-color: #007bff; /* Blue background color */
+  border: none; /* Removing border */
+  border-radius: 4px; /* Rounded corners */
+  color: white; /* White text */
+  font-size: 1rem; /* Adjusting font size */
+  cursor: pointer; /* Changing the cursor to pointer on hover */
+  transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+}
+
+.form-container button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* New search bar styling */
+.search-container {
+  max-width: 500px; /* Limiting the width */
+  margin: 20px auto; /* Centering the container */
+  margin-bottom: 0px; /* Removing bottom margin */
+  text-align: right; /* Aligning content to the right */
+}
+
+.search-container h2 {
+  text-align: center; /* Centering the subheading */
+  font-size: 1.5rem; /* Adjusting font size */
+  margin-bottom: 20px; /* Adding space below the subheading */
+  color: #444; /* Dark gray text */
+}
+
+#searchInput {
+  padding: 10px; /* Padding inside the input */
+  font-size: 1rem; /* Adjusting font size */
+  border: 1px solid #ccc; /* Light gray border */
+  border-radius: 4px; /* Rounded corners */
+  width: 100%; /* Full-width input */
+  max-width: 500px; /* Limiting the maximum width */
+  margin-bottom: 0px; /* Removing bottom margin */
+}
+
+/* Container for the data table */
+.data-container {
+  max-width: 800px; /* Limiting the width */
+  margin: 40px auto; /* Centering the container */
+}
+
+/* Styling the table */
+table {
+  width: 100%; /* Full-width table */
+  border-collapse: collapse; /* Removing gaps between table cells */
+  margin: 20px 0; /* Adding vertical space around the table */
+  margin-top: 0px; /* Removing extra top margin */
+  background-color: #fff; /* White background */
+  border-radius: 8px; /* Rounded corners */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Adding a shadow effect */
+  overflow: hidden; /* Ensuring content stays within the rounded corners */
+}
+
+thead {
+  background-color: #007bff; /* Blue background for the header */
+  color: white; /* White text color */
+}
+
+thead th {
+  padding: 15px; /* Padding inside header cells */
+  text-align: left; /* Left-aligning text */
+  font-size: 1rem; /* Adjusting font size */
+}
+
+tbody tr {
+  border-bottom: 1px solid #dddddd; /* Adding a light gray border between rows */
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9f9f9; /* Light gray background for even rows */
+}
+
+tbody td {
+  padding: 12px 15px; /* Adding padding inside cells */
+  font-size: 0.9rem; /* Adjusting font size */
+  color: #555; /* Medium gray text */
+}
+
+/* Hover effect for table rows */
+tbody tr:hover {
+  background-color: #f1f1f1; /* Light background on hover */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .form-container, .data-container {
+      padding: 15px; /* Reducing padding for smaller screens */
   }
-  
-  /* Styling the body */
-  body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    padding: 20px;
+
+  table, thead, tbody, th, td, tr {
+      display: block; /* Making table elements stack vertically */
   }
-  
-  
-  header{
-    text-align: center;
-    margin: 10px;
-  }
-  
-  /* Container for the form */
-  .form-container {
-    background-color: #ffffff;
-    border-radius: 8px;
-    padding: 20px;
-    max-width: 500px;
-    margin: 20px auto;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .form-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    font-size: 1.5rem;
-    color: #444;
-  }
-  
-  .form-container label {
-    display: block;
-    margin: 10px 0 5px;
-    font-size: 0.9rem;
-    font-weight: bold;
-    color: #555;
-  }
-  
-  .form-container input[type="text"],
-  .form-container textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 0.9rem;
-    color: #333;
-  }
-  
-  .form-container textarea {
-    resize: none;
-  }
-  
-  .form-container button {
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    border: none;
-    border-radius: 4px;
-    color: white;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .form-container button:hover {
-    background-color: #0056b3;
-  }
-  
-  
-  
-  /* New search bar styling */
-  .search-container {
-    max-width: 500px;
-    margin: 20px auto;
-    margin-bottom: 0px;
-    text-align: right;
-  }
-  
-  .search-container h2 {
-    text-align: center;
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-    color: #444;
-  }
-  
-  #searchInput {
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    width: 100%;
-    max-width: 500px;
-    margin-bottom: 0px;
-  }
-  
-  /* Container for the data table */
-  .data-container {
-    max-width: 800px;
-    margin: 40px auto;
-  }
-  
-  
-  
-  /* Styling the table */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 20px 0;
-    margin-top: 0px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-  }
-  
+
   thead {
-    background-color: #007bff;
-    color: white;
+      display: none; /* Hiding the table header */
   }
-  
-  thead th {
-    padding: 15px;
-    text-align: left;
-    font-size: 1rem;
-  }
-  
+
   tbody tr {
-    border-bottom: 1px solid #dddddd;
+      margin-bottom: 15px; /* Adding space between rows */
   }
-  
-  tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
+
   tbody td {
-    padding: 12px 15px;
-    font-size: 0.9rem;
-    color: #555;
+      display: block; /* Making cells stack vertically */
+      text-align: right; /* Right-aligning the text */
+      font-size: 0.8rem; /* Reducing font size */
+      border-bottom: 1px solid #eee; /* Adding a light border */
+      position: relative; /* Setting position for pseudo-element */
+      padding-left: 50%; /* Adding padding for content alignment */
   }
-  
-  /* Hover effect for table rows */
-  tbody tr:hover {
-    background-color: #f1f1f1;
+
+  tbody td::before {
+      content: attr(data-label); /* Displaying the column name before each cell */
+      position: absolute; /* Positioning the pseudo-element */
+      left: 10px; /* Aligning it to the left */
+      width: 45%; /* Allocating space for labels */
+      padding-right: 10px; /* Adding space between label and content */
+      text-align: left; /* Left-aligning the label */
+      font-weight: bold; /* Making labels bold */
   }
-  
-  /* Responsive design */
-  @media (max-width: 768px) {
-    .form-container, .data-container {
-      padding: 15px;
-    }
-  
-    table, thead, tbody, th, td, tr {
-      display: block;
-    }
-  
-    thead {
-      display: none;
-    }
-  
-    tbody tr {
-      margin-bottom: 15px;
-    }
-  
-    tbody td {
-      display: block;
-      text-align: right;
-      font-size: 0.8rem;
-      border-bottom: 1px solid #eee;
-      position: relative;
-      padding-left: 50%;
-    }
-  
-    tbody td::before {
-      content: attr(data-label);
-      position: absolute;
-      left: 10px;
-      width: 45%;
-      padding-right: 10px;
-      text-align: left;
-      font-weight: bold;
-    }
-  }
-  
+}
