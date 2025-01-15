@@ -28,14 +28,14 @@ function saveFilmRating() {
   //const moodField = document.getElementById("Mood");
   const genreField = document.getElementById("Genre");
   const commentsField = document.getElementById("Comments");
-  //const watchAgainField = document.getElementById("WatchAgain");
+  const watchAgainField = document.getElementById("WatchAgain");
 
   const filmName = filmField.value;
   const filmRating = ratingField.value;
   //const filmMood = moodField.value;
   const filmGenre = genreField.value;
   const extraComments = commentsField.value;
-  //const wouldWatchAgain = watchAgainField.value === "Yes";  // Convert to Boolean (true/false)
+  const wouldWatchAgain = watchAgainField.value === "Yes";  // Convert to Boolean (true/false)
 
   // Simple validation
   if (!filmName || !filmRating || !filmGenre) {
@@ -49,7 +49,7 @@ function saveFilmRating() {
   //moodField.value = "";
   genreField.value = "";
   commentsField.value = "";
-  //watchAgainField.value = "Yes";  // Reset the "Would you watch it again?" field to "Yes"
+  watchAgainField.value = "Yes";  // Reset the "Would you watch it again?" field to "Yes"
 
   // Save the data to Firebase
   const data = myDBCxn.push();
@@ -59,7 +59,7 @@ function saveFilmRating() {
     //Mood: filmMood,
     Genre: filmGenre,
     Comments: extraComments,
-    //WatchAgain: wouldWatchAgain  // Store the Boolean value
+    WatchAgain: wouldWatchAgain  // Store the Boolean value
   });
 
   alert("Film, Rating, Genre, Would you watch it again, and Comments saved successfully!");
