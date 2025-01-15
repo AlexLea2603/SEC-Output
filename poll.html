@@ -20,15 +20,18 @@
             <input type="text" id="Film" name="Film" placeholder="Enter film name" required>
             <br>
             <label for="Rating">Rating:</label>
-            <input type="text" id="Rating" name="Rating" placeholder="Enter rating" required>
+            <input type="text" id="Rating" name="Rating" placeholder="Enter rating out of 10 (has to be float/integer)" required>
             <br>
             <label for="Genre">Genre:</label>
             <input type="text" id="Genre" name="Genre" placeholder="Enter film genre" required>
             <br>
 
-            <label for="Mood">Type of Film:</label>
-            <input type="text" id="Mood" name="Mood" placeholder="What Type of Film was it? e.g thought provoking (Not Required)" required>
-
+            <label for="WatchAgain">Would you watch it again?</label>
+            <select id="WatchAgain" name="WatchAgain" required>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
+            </select>
+            <br>
             <br>
             <label for="Comments">Extra Comments:</label>
             <textarea id="Comments" name="Comments" placeholder="Enter extra comments (Not Required)" required></textarea>
