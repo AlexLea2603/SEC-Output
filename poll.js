@@ -41,21 +41,12 @@ function saveFilmRating() {
     return;
   }
 
-  function validateInput(filmRating) {
-    const numberValue = Number(filmRating); // Convert the input to a number
-    
-    if (isNaN(numberValue)) {
-      return "The value is not a valid number.";
-    } else if (Number.isInteger(numberValue)) {
-      return "This an integer.";
-    } else if (isFloat(filmRating)) {
-      alert("This a Float.");
-      return;
-    } else {
-      alert("This not a number");
-      return;
-    }
-  }
+ // Validate that the rating is a number (integer or float)
+ const ratingPattern = /^[0-9]+(\.[0-9]+)?$/; // Regex for integers or floats
+ if (!ratingPattern.test(filmRating)) {
+   alert("Rating must be a valid number (integer or float).");
+   return;
+ }
   
 
   // Reset the form fields after submission
