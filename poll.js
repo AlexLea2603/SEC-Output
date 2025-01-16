@@ -87,17 +87,14 @@ function displayDataInTable(data) {
   genreCell.innerText = datapoint.Genre;
   newRow.appendChild(genreCell);
 
-  const moodCell = document.createElement("td");
-  moodCell.innerText = datapoint.Mood;
-  newRow.appendChild(moodCell);
+  const watchAgainCell = document.createElement("td");
+  watchAgainCell.innerText = datapoint.WatchAgain ? "Yes" : "No";  // Display "Yes" or "No"
+  newRow.appendChild(watchAgainCell);
 
   const commentsCell = document.createElement("td");
   commentsCell.innerText = datapoint.Comments;
   newRow.appendChild(commentsCell);
 
-  const watchAgainCell = document.createElement("td");
-  watchAgainCell.innerText = datapoint.WatchAgain ? "Yes" : "No";  // Display "Yes" or "No"
-  newRow.appendChild(watchAgainCell);
 
   // Append the new row to the table body
   document.getElementById("rows").appendChild(newRow);
