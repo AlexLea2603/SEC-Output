@@ -108,10 +108,10 @@ function filterTable() {
   tableRows.forEach(row => {
     const film = row.cells[0].innerText.toLowerCase();
     const rating = row.cells[1].innerText.toLowerCase();
-    const mood = row.cells[2].innerText.toLowerCase();
+    const WatchAgain = row.cells[2].innerText.toLowerCase();
     const genre = row.cells[3].innerText.toLowerCase();
 
-    if (film.includes(searchInput) || rating.includes(searchInput) || mood.includes(searchInput) || genre.includes(searchInput)) {
+    if (film.includes(searchInput) || rating.includes(searchInput) || WatchAgain.includes(searchInput) || genre.includes(searchInput)) {
       row.style.display = ""; // Show row if it matches search
     } else {
       row.style.display = "none"; // Hide row if it doesn't match
