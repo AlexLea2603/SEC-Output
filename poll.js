@@ -41,17 +41,19 @@ function saveFilmRating() {
     return;
   }
 
-  function validateInput(value) {
-    const numberValue = Number(value); // Convert the input to a number
+  function validateInput(filmRating) {
+    const numberValue = Number(filmRating); // Convert the input to a number
     
     if (isNaN(numberValue)) {
       return "The value is not a valid number.";
     } else if (Number.isInteger(numberValue)) {
-      return "The value is an integer.";
-    } else if (isFloat(value)) {
-      return "The value is a float.";
+      return "This an integer.";
+    } else if (isFloat(filmRating)) {
+      alert("This a Float.");
+      return;
     } else {
-      return "The value is a number but not recognized as integer or float.";
+      alert("This not a number");
+      return;
     }
   }
   
