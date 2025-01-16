@@ -25,14 +25,12 @@ function saveFilmRating() {
   // Get values from input fields
   const filmField = document.getElementById("Film");
   const ratingField = document.getElementById("Rating");
-  //const moodField = document.getElementById("Mood");
   const genreField = document.getElementById("Genre");
   const commentsField = document.getElementById("Comments");
   const watchAgainField = document.getElementById("WatchAgain");
 
   const filmName = filmField.value;
   const filmRating = ratingField.value;
-  //const filmMood = moodField.value;
   const filmGenre = genreField.value;
   const extraComments = commentsField.value;
   const wouldWatchAgain = watchAgainField.value === "Yes";  // Convert to Boolean (true/false)
@@ -43,10 +41,24 @@ function saveFilmRating() {
     return;
   }
 
+  function validateInput(value) {
+    const numberValue = Number(value); // Convert the input to a number
+    
+    if (isNaN(numberValue)) {
+      return "The value is not a valid number.";
+    } else if (Number.isInteger(numberValue)) {
+      return "The value is an integer.";
+    } else if (isFloat(value)) {
+      return "The value is a float.";
+    } else {
+      return "The value is a number but not recognized as integer or float.";
+    }
+  }
+  
+
   // Reset the form fields after submission
   filmField.value = "";
   ratingField.value = "";
-  //moodField.value = "";
   genreField.value = "";
   commentsField.value = "";
   watchAgainField.value = "Yes";  // Reset the "Would you watch it again?" field to "Yes"
@@ -56,7 +68,6 @@ function saveFilmRating() {
   data.set({
     Film: filmName,
     Rating: filmRating,
-    //Mood: filmMood,
     Genre: filmGenre,
     Comments: extraComments,
     WatchAgain: wouldWatchAgain  // Store the Boolean value
