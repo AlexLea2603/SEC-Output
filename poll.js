@@ -37,12 +37,19 @@ function saveFilmRating() {
 
 
   // Validate that the rating is a number (integer or float)
-  const ratingPattern = /^[0-9]+(\.[0-9]+)?$/; // Regex for positive integers or floats
+  if(isNaN(filmRating)) {
+    alert('Income must be a number');
+    return;
+}
 
-  if (!ratingPattern.test("string")) {
-    alert("Rating must be a valid number (integer or float).");
-    return; // Stop the function execution if validation fails
-  }
+if(filmRating < 0) {
+    alert('Income must be a positive number');
+    return;
+}
+  //if (!ratingPattern.test("string")) {
+    //alert("Rating must be a valid number (integer or float).");
+    //return; // Stop the function execution if validation fails
+  //}
   
 
 
