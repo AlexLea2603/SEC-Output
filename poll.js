@@ -38,12 +38,12 @@ function saveFilmRating() {
 
   // Validate that the rating is a number (integer or float)
   if(isNaN(filmRating)) {
-    alert('Income must be a number');
+    alert(' FilmRating must be just a number');
     return;
 }
 
 if(filmRating < 0) {
-    alert('Income must be a positive number');
+    alert('Film Rating must be a positive number');
     return;
 }
   //if (!ratingPattern.test("string")) {
