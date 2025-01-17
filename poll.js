@@ -38,7 +38,7 @@ function saveFilmRating() {
 
   // Validate that the rating is a number (integer or float)
   if(isNaN(filmRating)) {
-    alert(' FilmRating must be just a number');
+    alert(' Film Rating must be just a number');
     return;
 }
 
@@ -46,10 +46,7 @@ if(filmRating < 0) {
     alert('Film Rating must be a positive number');
     return;
 }
-  //if (!ratingPattern.test("string")) {
-    //alert("Rating must be a valid number (integer or float).");
-    //return; // Stop the function execution if validation fails
-  //}
+ 
   
 
 
