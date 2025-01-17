@@ -12,15 +12,11 @@
 
     min-height: 100vh;
 
-    background-image: url(hills.jpg);
-
-    background-size: cover;
-
-    background-repeat: no-repeat;
-
-    background-position: center;
-
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    
 
   }
 
@@ -93,4 +89,28 @@
   }
 
 
+/* giving body a font, removing margins/padding, and centering content */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
 
+/* Adding spacing around the main heading */
+h1 {
+    margin: 20px;
+}
+/* Styling containers that hold graphs */
+.graph-container {
+    margin: 30px auto; /* Centering the container with top/bottom spacing */
+    border: 1px solid #ccc; /* Adding a light border around the container */
+    padding: 10px; /* Adding inner spacing around content */
+    width: 80%; /* Setting the container width to 80% of the page */
+}
+
+iframe {
+    width: 100%; /* Making the iframe as wide as its container */
+    height: 500px; /* Setting a fixed height for the iframe */
+    border: none; /* Removing the default iframe border */
+}
