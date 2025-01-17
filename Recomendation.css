@@ -1,0 +1,76 @@
+*{
+    margin: 0;
+    padding: 0;
+  }
+  
+  body{
+    min-height: 100vh;
+    background-image: url(hills.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  nav{
+    background-color: white;
+    box-shadow: 3px 3px 5px rgba( 0, 0, 0, 0.5);
+  }
+  nav ul{
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  
+  }
+  
+  nav li{
+    height:50px;
+  }
+  
+  nav a{
+    height: 50px;
+    padding: 0 30px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+  
+  }
+  
+  nav a:hover{
+    background-color: #f0f0f0;
+  }
+  
+  nav li:first-child{
+    margin-right: auto;
+  }
+  
+  
+  .centre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+  }
+  
+  .centered-box {
+    width: 50%;
+    max-width: 500px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; /* Center text inside the box */
+  }
+  
+  .centered-box img {
+    max-width: 50%;
+    height: auto;
+    border-radius: 5px;
+  }
+  
+  .centered-box p {
+    margin: 15px 0;
+  }
