@@ -3,66 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Film Ratings</title>
-    <link rel="stylesheet" href="contact1.css">
+    <title>Recommendations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .recommendation {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
+    <h1>Recommendations</h1>
+    <div id="recommendations-container"></div>
 
-    <header>
-        <h1>Your Film Reviews</h1>
-        
-    </header>
+    <script>
+        // Replace with your backend API URL
+        const API_URL = 'http://127.0.0.1:5000/api/recommendations';
 
-    <div class="form-container">
-        <h2>Submit Film Rating</h2>
-        <form id="filmForm">
-            <label for="Film">Film Name:</label>
-            <input type="text" id="Film" name="Film" placeholder="Enter film name" required>
-            <br>
-            <label for="Rating">Rating:</label>
-            <input type="text" id="Rating" name="Rating" placeholder="Enter rating" required>
-            <br>
-            <label for="Genre">Genre:</label>
-            <input type="text" id="Genre" name="Genre" placeholder="Enter film genre" required>
-            <br>
+        // Fetch data from Flask API
+        async function fetchRecommendations() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
 
-            <label for="Mood">Type of Film:</label>
-            <input type="text" id="Mood" name="Mood" placeholder="What Type of Film was it? e.g thought provoking (Not Required)" required>
+                const container = document.getElementById('recommendations-container');
+                data.forEach(item => {
+                    const div = document.createElement('div');
+                    div.className = 'recommendation';
+                    div.innerHTML = `
+                        <h2>${item.title}</h2>
+                        <p>Genre: ${item.genre}</p>
+                        <p>Rating: ${item.rating}</p>
+                    `;
+                    container.appendChild(div);
+                });
+            } catch (error) {
+                console.error('Error fetching recommendations:', error);
+            }
+        }
 
-            <br>
-            <label for="Comments">Extra Comments:</label>
-            <textarea id="Comments" name="Comments" placeholder="Enter extra comments (Not Required)" required></textarea>
-            <br>
-            <button type="button" id="submit-data">Submit</button>
-        </form>
-    </div>
-   <br><br>
-    <div class="search-container">
-        <h2>Film Ratings</h2>
-        <input type="text" id="searchInput" placeholder="Search by Film Name, Genre, Type of Film, or Rating" onkeyup="filterTable()">
-    </div>
-
-    
-    <div class="data-container">
-    
-        <table id="filmTable">
-            <thead>
-                <tr>
-                    <th>Film</th>
-                    <th>Rating</th>
-                    <th>Genre</th>
-                    <th>Type of Film</th>
-                    <th>Extra Comments</th>
-                </tr>
-            </thead>
-            <tbody id="rows">
-                <!-- Data will be appended here -->
-            </tbody>
-        </table>
-    </div>
-
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
-    <script src="contact1.js"></script>
+        // Call the function
+        fetchRecommendations();
+    </script>
 </body>
 </html>
