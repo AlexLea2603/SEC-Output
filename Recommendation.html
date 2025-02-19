@@ -1,50 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Responsiv</title>
-    <link href="Recommendation.css" rel="stylesheet" type="text/css" /> 
-  <style>
-  </style>
-</head>
-<body>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="poll.html">Form</a></li>
-      <li><a href="Recommendation.html">Recommendation</a></li>
-    </ul>
-  </nav>
-  <br>
-  <div class="centre">
-    <div class="centered-box">
-        <h1>Alt 1</h1>
-        <img src="https://via.placeholder.com/400" alt="Placeholder Image">
-        <h2>By Alexander Lea</h2>
-    </div>
-  </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="Recommendation.css" rel="stylesheet" type="text/css" />
+    <title>Recommendations</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="poll.html">Form</a></li>
+        <li><a href="Recommendation.html">Recommendation</a></li>
+      </ul>
+    </nav>
+<br>
+    <h1>Film Recommendations</h1>
+    <button id="fetchDataBtn">Get Recommendations</button>
+    <br>
+    <div id="grossRecommendation"></div>
+<br>
+    <h2>Highly Rated Movies</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>IMDB Rating</th>
+          <th>Meta Score</th>
+        </tr>
+      </thead>
+      <tbody id="highlyRatedTable"></tbody>
+    </table>
 
+    <h2>Underrated Gems</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Genre</th>
+          <th>IMDB Rating</th>
+          <th>Gross</th>
+        </tr>
+      </thead>
+      <tbody id="underratedGemsTable"></tbody>
+    </table>
 
-  <div class="filter-container">
-    <h2>Filter Your Preferences</h2>
-    <form id="filterForm">
-        <label for="genreInput">Preferred Genre:</label>
-        <input type="text" id="genreInput" placeholder="Enter a genre (e.g., Action, Drama)">
-        <button type="button" id="filterButton">Filter</button>
-    </form>
-</div>
-
-<h1>Recommendations</h1>
-    <div id="recommendations-container"></div>
-
-
-<script src="Recommendation.js"></script>
-
-
-
-
-
-</body>
+    <script src="Recommendation.js"></script>
+  </body>
 </html>

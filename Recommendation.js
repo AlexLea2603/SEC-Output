@@ -1,26 +1,48 @@
-// Replace with your backend API URL
-const API_URL = 'http://127.0.0.1:5000/api/recommendations';
+document.getElementById('fetchDataBtn').addEventListener('click', fetchRecommendations);
 
-// Fetch data from Flask API
-async function fetchRecommendations() {
-    try {
-        const response = await fetch(API_URL);
-        const data = await response.json();
-        const container = document.getElementById('recommendations-container');
-        data.forEach(item => {
-            const div = document.createElement('div');
-            div.className = 'recommendation';
-            div.innerHTML = `
-                <h2>${item.title}</h2>
-                <p>Genre: ${item.genre}</p>
-                <p>Rating: ${item.rating}</p>
-            `;
-            container.appendChild(div);
-        });
-    } catch (error) {
-        console.error('Error fetching recommendations:', error);
-    }
+function fetchRecommendations() {
+  const apiUrl = 'http://127.0.0.1:5000/api/recommendations';
+
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Display gross recommendation
+      document.getElementById('grossRecommendation').innerText = data.gross_recommendation;
+
+      // Populate Highly Rated table
+      const highlyRatedTable = document.getElementById('highlyRatedTable');
+      highlyRatedTable.innerHTML = ''; // Clear previous data
+      data.highly_rated.forEach(movie => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${movie.Series_Title}</td>
+          <td>${movie.Genre}</td>
+          <td>${movie.IMDB_Rating}</td>
+          <td>${movie.Meta_score}</td>
+        `;
+        highlyRatedTable.appendChild(row);
+      });
+
+      // Populate Underrated Gems table
+      const underratedGemsTable = document.getElementById('underratedGemsTable');
+      underratedGemsTable.innerHTML = ''; // Clear previous data
+      data.underrated_gems.forEach(movie => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${movie.Series_Title}</td>
+          <td>${movie.Genre}</td>
+          <td>${movie.IMDB_Rating}</td>
+          <td>$${movie.Gross.toLocaleString()}</td>
+        `;
+        underratedGemsTable.appendChild(row);
+      });
+    })
+    .catch(error => {
+      console.error('Error fetching recommendations:', error);
+    });
 }
-
-// Call the function
-fetchRecommendations();
